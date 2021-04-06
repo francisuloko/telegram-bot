@@ -1,24 +1,26 @@
+# frozen_string_literal: true
+
 require_relative 'lib/telegram/bot/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "telegram-bot"
+  spec.name          = 'telegram-bot'
   spec.version       = Telegram::Bot::VERSION
-  spec.authors       = ["francis uloko"]
-  spec.email         = ["francisuloko@yahoo.com"]
+  spec.authors       = ['francis uloko']
+  spec.email         = ['francisuloko@yahoo.com']
 
-  spec.summary       = %q{Microverse ruby capstone project to build a bot}
-  spec.homepage      = "https://github.com/francisuloko/telegram-bot.git"
-  spec.license       = "MIT"
-  spec.required_ruby_version = Gem::Requirement.new(">= 2.3.0")
+  spec.summary       = 'Microverse ruby capstone project to build a bot'
+  spec.homepage      = 'https://github.com/francisuloko/telegram-bot.git'
+  spec.license       = 'MIT'
+  spec.required_ruby_version = Gem::Requirement.new('>= 2.3.0')
 
-  spec.metadata["homepage_uri"] = spec.homepage
+  spec.metadata['homepage_uri'] = spec.homepage
 
   # Specify which files should be added to the gem when it is released.
   # The `git ls-files -z` loads the files in the RubyGem that have been added into git.
-  spec.files         = Dir.chdir(File.expand_path('..', __FILE__)) do
+  spec.files = Dir.chdir(File.expand_path(__dir__)) do
     `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
   end
-  spec.bindir        = "exe"
+  spec.bindir        = 'exe'
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
-  spec.require_paths = ["lib"]
+  spec.require_paths = ['lib']
 end
