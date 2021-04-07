@@ -19,6 +19,7 @@ module Paddy
       @news_links
     end
 
+<<<<<<< HEAD
     def scrape
       @url = 'https://www.channelstv.com/category/world-news'
       @html = HTTParty.get(@url)
@@ -28,3 +29,18 @@ module Paddy
   end
 end
 # rubocop: enable Metrics/PerceivedComplexity, Metrics/CyclomaticComplexity
+=======
+def scrape
+    latest_news = []
+    url = "https://www.channelstv.com/category/world-news"
+    html = HTTParty.get(url)
+    obj = Nokogiri::HTML(html.body)
+    articles = obj.css('div.cat_page')
+
+    articles.each do |article|
+        latest_news << article.css('a')[0].attributes['href']
+    end
+end
+
+# puts scrape
+>>>>>>> 63326086d8451a369b8ac8caee64fd08ce6b23d7
