@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 require_relative '../lib/news_source'
 
 describe 'Paddy::NewsSource' do
