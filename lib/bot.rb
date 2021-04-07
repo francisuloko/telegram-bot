@@ -9,7 +9,7 @@ require_relative '../lib/bot'
 start_message = <<~EOS
 Hello there!
 
-I'm Paddy, with the lastest news.
+I'm Paddy, bringing you the lastest news.
 
 Want to know what's happening
 aroud the world?
