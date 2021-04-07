@@ -3,7 +3,7 @@
 require 'telegram/bot'
 require_relative '../config/token'
 require_relative '../lib/bot'
-require_relative '../lib/channelstv'
+require_relative '../lib/news_source'
 
 Telegram::Bot::Client.run(TOKEN) do |bot|
   bot.listen do |message|

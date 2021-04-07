@@ -4,7 +4,7 @@ require 'httparty'
 require 'byebug'
 
 module Paddy
-  class ChannelsTv
+  class NewsSource
     attr_reader
 
     def initialize
