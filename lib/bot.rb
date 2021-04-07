@@ -1,9 +1,10 @@
 #!/usr/bin/env ruby
-# frozen_string_literal: true
 
-require_relative '../lib/bot'
-require_relative '../config/token'
 require 'telegram/bot'
+require_relative '../config/token'
+require_relative '../lib/bot'
+
+
 
 start_message = <<~EOS
 Hello there!
@@ -18,6 +19,7 @@ Select source:
 For bbc news: /bbc  
 For cnn news: /cnn
 For channels news: /channels
+
 To end session: /stop
 
 EOS
