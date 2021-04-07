@@ -16,9 +16,9 @@ Telegram::Bot::Client.run(TOKEN) do |bot|
       channels = Paddy::ChannelsTv.new
       article = channels.news_links
       i = 0
-      bot.api.send_message(chat_id: message.chat.id, text: article[i])
-      bot.api.send_message(chat_id: message.chat.id, text: '/next')
       bot.listen do |message|
+        bot.api.send_message(chat_id: message.chat.id, text: article[i])
+        bot.api.send_message(chat_id: message.chat.id, text: '/next')
         if message.text == '/next' && i < article.length
           i += 1
           bot.api.send_message(chat_id: message.chat.id, text: article[i])
