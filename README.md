@@ -41,7 +41,7 @@ To create your own telegram bot based on the same logic
 
 2. Enter /help to see a list of commands
 3. Click /newbot command and choose your bot name and username (It must be unique)
-4. Copy your Token (or use /token or generate).
+4. Copy your Token (or use /token or generate)
 5. Open terminal or command line
 6. Run the following commands
  - $ `git clone https://github.com/francisuloko/telegram-bot.git`
