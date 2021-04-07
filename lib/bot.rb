@@ -1,4 +1,4 @@
-# rubocop: disable Metrics/PerceivedComplexity, Metrics/CyclomaticComplexity
+# frozen_string_literal: true
 
 require 'telegram/bot'
 require_relative '../config/token'
@@ -35,4 +35,3 @@ Telegram::Bot::Client.run(TOKEN) do |bot|
     bot.api.send_message(chat_id: message.chat.id, text: 'Want more news, try /cnn or /bbc')
   end
 end
-# rubocop: enable Metrics/PerceivedComplexity, Metrics/CyclomaticComplexity

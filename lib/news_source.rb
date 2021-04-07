@@ -1,4 +1,5 @@
-# rubocop: disable Metrics/PerceivedComplexity, Metrics/CyclomaticComplexity
+# frozen_string_literal: true
+
 require 'nokogiri'
 require 'httparty'
 require 'byebug'
@@ -27,4 +28,3 @@ module Paddy
     end
   end
 end
-# rubocop: enable Metrics/PerceivedComplexity, Metrics/CyclomaticComplexity
