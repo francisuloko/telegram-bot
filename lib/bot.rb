@@ -15,16 +15,16 @@ Telegram::Bot::Client.run(TOKEN) do |bot|
     when '/channels'
       channels = Paddy::ChannelsTv.new
       article = channels.news_links
+      bot.api.send_message(chat_id: message.chat.id, text: article[i])
+      bot.api.send_message(chat_id: message.chat.id, text: '/next')
       i = 0
-      bot.listen do |message|
-        bot.api.send_message(chat_id: message.chat.id, text: article[i])
-        bot.api.send_message(chat_id: message.chat.id, text: '/next')
-        if message.text == '/next' && i < article.length
+      bot.listen do |msg|
+        if msg.text == '/next' && i < article.length
           i += 1
-          bot.api.send_message(chat_id: message.chat.id, text: article[i])
-          bot.api.send_message(chat_id: message.chat.id, text: '/next')
+          bot.api.send_message(chat_id: msg.chat.id, text: article[i])
+          bot.api.send_message(chat_id: msg.chat.id, text: '/next')
         elsif message.text == '/stop'
-          bot.api.send_message(chat_id: message.chat.id, text: 'See you again friend')
+          bot.api.send_message(chat_id: msg.chat.id, text: 'See you again friend')
           break
         end
         break if i == article.length
