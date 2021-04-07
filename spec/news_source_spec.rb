@@ -1,4 +1,6 @@
-RSpec.describe Paddy::NewsSource do
+require_relative '../lib/news_source'
+
+describe "Paddy::NewsSource" do
     describe "#news_link" do
         it "returns array of news links" do
             expect(news_links).to eq(Array.new)
