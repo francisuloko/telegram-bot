@@ -1,33 +1,15 @@
-#!/usr/bin/env ruby
+# rubocop: disable Metrics/PerceivedComplexity, Metrics/CyclomaticComplexity
 
 require 'telegram/bot'
 require_relative '../config/token'
 require_relative '../lib/bot'
 require_relative '../lib/channelstv'
 
-
-
-start_message = <<~EOS
-Hello there!
-
-I'm Paddy, here with the lastest Headlines.
-
-Want to know what's happening
-aroud the globe?
-
-Select source:
-
-1. /bbc
-2. /cnn
-3. /channels
-
-EOS
-
-Telegram::Bot::Client.run(BOT_TOKEN) do |bot|
+Telegram::Bot::Client.run(TOKEN) do |bot|
   bot.listen do |message|
     case message.text
     when '/start'
-      bot.api.send_message(chat_id: message.chat.id, text:  start_message.to_s)
+      bot.api.send_message(chat_id: message.chat.id, text: 'Hello...')
     when '/bbc'
       bot.api.send_message(chat_id: message.chat.id, text:  'coming soon...')
     when '/cnn'
@@ -36,17 +18,21 @@ Telegram::Bot::Client.run(BOT_TOKEN) do |bot|
       channels = Paddy::ChannelsTv.new
       article = channels.news_links
       i = 0
-      bot.api.send_message(chat_id: message.chat.id, text:  article[0])
+      bot.api.send_message(chat_id: message.chat.id, text:  article[i])
+      bot.api.send_message(chat_id: message.chat.id, text:  '/next')
       bot.listen do |message|
-        if message.text == '/next' && i < 3 #article.length
-          bot.api.send_message(chat_id: message.chat.id, text:  article[i])
+        if message.text == '/next' && i < article.length
           i += 1
+          bot.api.send_message(chat_id: message.chat.id, text:  article[i])
+          bot.api.send_message(chat_id: message.chat.id, text:  '/next')
+        elsif message.text == '/stop'
+          bot.api.send_message(chat_id: message.chat.id, text:  'See you again friend')
+          break
         end
-        bot.api.send_message(chat_id: message.chat.id, text:  'Want more, try /cnn or /bbc')
-        break
+        break if i == article.length
       end
-    when '/stop'
-      bot.api.send_message(chat_id: message.chat.id, text:  'See you again friend')
     end
+    bot.api.send_message(chat_id: message.chat.id, text: 'Want more news, try /cnn or /bbc')
   end
 end
+# rubocop: enable Metrics/PerceivedComplexity, Metrics/CyclomaticComplexity
