@@ -37,7 +37,6 @@ To create your own telegram bot based on the same logic
 
 1. Lauch Telegram and Talk to the BotFather (@BotFather)
 
-![@BotFather](./botfather.png)
 <img src="./botfather.png" alt="BotFather" widht="300" height="300">
 
 2. Enter /help to see a list of commands
