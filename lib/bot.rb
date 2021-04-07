@@ -3,24 +3,23 @@
 require 'telegram/bot'
 require_relative '../config/token'
 require_relative '../lib/bot'
+require_relative '../lib/channelstv'
 
 
 
 start_message = <<~EOS
 Hello there!
 
-I'm Paddy, bringing you the lastest news.
+I'm Paddy, here with the lastest Headlines.
 
 Want to know what's happening
-aroud the world?
+aroud the globe?
 
 Select source:
 
-For bbc news: /bbc  
-For cnn news: /cnn
-For channels news: /channels
-
-To end session: /stop
+1. /bbc
+2. /cnn
+3. /channels
 
 EOS
 
@@ -30,11 +29,22 @@ Telegram::Bot::Client.run(BOT_TOKEN) do |bot|
     when '/start'
       bot.api.send_message(chat_id: message.chat.id, text:  start_message.to_s)
     when '/bbc'
-      bot.api.send_message(chat_id: message.chat.id, text:  'loading...')
+      bot.api.send_message(chat_id: message.chat.id, text:  'coming soon...')
     when '/cnn'
-      bot.api.send_message(chat_id: message.chat.id, text:  'loading...')
+      bot.api.send_message(chat_id: message.chat.id, text:  'coming soon...')
     when '/channels'
-      bot.api.send_message(chat_id: message.chat.id, text:  'loading...')
+      channels = Paddy::ChannelsTv.new
+      article = channels.news_links
+      i = 0
+      bot.api.send_message(chat_id: message.chat.id, text:  article[0])
+      bot.listen do |message|
+        if message.text == '/next' && i < 3 #article.length
+          bot.api.send_message(chat_id: message.chat.id, text:  article[i])
+          i += 1
+        end
+        bot.api.send_message(chat_id: message.chat.id, text:  'Want more, try /cnn or /bbc')
+        break
+      end
     when '/stop'
       bot.api.send_message(chat_id: message.chat.id, text:  'See you again friend')
     end
