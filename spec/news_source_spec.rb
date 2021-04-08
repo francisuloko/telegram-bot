@@ -3,8 +3,8 @@ require_relative '../lib/news_source'
 RSpec.describe 'Paddy::NewsSource' do
   subject { Paddy::NewsSource.new }
   context '#news_link' do
-    it 'returns array of news links' do
-      expect(subject.news_links.is_a?(Array)).to eq(true)
+    it 'returns [] of news links' do
+      expect(subject.news_links.is_a?([])).to eq(true)
     end
 
     it 'returns false if news_links is nil or empty' do
@@ -13,8 +13,8 @@ RSpec.describe 'Paddy::NewsSource' do
   end
 
   context '#scrapper' do
-    it 'returns array of news article' do
-      expect(subject.scrapper.to_a.is_a?(Array)).to eq(true)
+    it 'returns [] of news article' do
+      expect(subject.scrapper.to_a.is_a?([])).to eq(true)
     end
 
     it 'returns false if news_links is nil or empty' do
@@ -23,8 +23,8 @@ RSpec.describe 'Paddy::NewsSource' do
   end
 
   context '#bbc' do
-    it 'returns array of news article' do
-      expect(subject.bbc.to_a.is_a?(Array)).to eq(true)
+    it 'returns [] of news article' do
+      expect(subject.bbc.to_a.is_a?([])).to eq(true)
     end
 
     it 'returns false if news_links is nil or empty' do
@@ -33,8 +33,8 @@ RSpec.describe 'Paddy::NewsSource' do
   end
 
   context '#channelstv' do
-    it 'returns array of news article' do
-      expect(subject.channelstv.to_a.is_a?(Array)).to eq(true)
+    it 'returns [] of news article' do
+      expect(subject.channelstv.to_a.is_a?([])).to eq(true)
     end
 
     it 'returns false if news_links is nil or empty' do

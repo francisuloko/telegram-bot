@@ -14,15 +14,12 @@ module Paddy
     end
 
     private
-<<<<<<< HEAD
-=======
 
     def scrapper(url, elem)
       html = HTTParty.get(url)
       obj = Nokogiri::HTML(html)
       articles = obj.css(elem)
     end
->>>>>>> test
 
     def bbc
       news_array = []
