@@ -12,13 +12,33 @@ RSpec.describe 'Paddy::NewsSource' do
     end
   end
 
-  context '#scrape' do
+  context '#scrapper' do
     it 'returns array of news article' do
-      expect(subject.scrape.to_a.is_a?(Array)).to eq(true)
+      expect(subject.scrapper.to_a.is_a?(Array)).to eq(true)
     end
 
     it 'returns false if news_links is nil or empty' do
-      expect(subject.scrape.nil?).not_to eq(true)
+      expect(subject.scrapper.nil?).not_to eq(true)
+    end
+  end
+
+  context '#bbc' do
+    it 'returns array of news article' do
+      expect(subject.bbc.to_a.is_a?(Array)).to eq(true)
+    end
+
+    it 'returns false if news_links is nil or empty' do
+      expect(subject.bbc.nil?).not_to eq(true)
+    end
+  end
+
+  context '#channelstv' do
+    it 'returns array of news article' do
+      expect(subject.channelstv.to_a.is_a?(Array)).to eq(true)
+    end
+
+    it 'returns false if news_links is nil or empty' do
+      expect(subject.channelstv.nil?).not_to eq(true)
     end
   end
 end
