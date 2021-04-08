@@ -8,7 +8,7 @@ RSpec.describe 'Paddy::NewsSource' do
       expect(subject.news_links.is_a?(Array)).to eq(true)
     end
 
-    it "return a flat array" do
+    it 'return a flat array' do
       expect(subject.news_links.length).not_to eq(1)
     end
 

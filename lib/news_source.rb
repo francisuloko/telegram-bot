@@ -18,7 +18,7 @@ module Paddy
     def scrapper(url, elem)
       html = HTTParty.get(url)
       obj = Nokogiri::HTML(html)
-      articles = obj.css(elem)
+      obj.css(elem)
     end
 
     def bbc
@@ -34,7 +34,7 @@ module Paddy
       end
       news_array
     end
-    
+     
     def channelstv
       news_array = []
       url = 'https://www.channelstv.com/category/world-news'
