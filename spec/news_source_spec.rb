@@ -1,15 +1,17 @@
 require_relative '../lib/news_source'
 
-describe 'Paddy::NewsSource' do
-  describe '#news_link' do
+RSpec.describe 'Paddy::NewsSource' do
+  context '#news_link' do
     it 'returns array of news links' do
-      expect(news_links).to eq([])
+      src = Paddy::NewsSource.new
+      expect(src.news_links.is_a? Array).to eq(true)
     end
   end
 
-  describe '#scrape' do
+  context '#scrape' do
     it 'returns array of news article' do
-      expect(scrape).to eq([])
+      src = Paddy::NewsSource.new
+      expect(src.news_links.is_a? Array).to eq(true)
     end
   end
 end
