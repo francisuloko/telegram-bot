@@ -4,7 +4,6 @@ require 'byebug'
 
 module Paddy
   class NewsSource
-    attr_reader :news_links
 
     def initialize
       @news_links = []
@@ -18,7 +17,7 @@ module Paddy
       @news_links
     end
 
-    private 
+    private
 
     def scrape
       @url = 'https://www.channelstv.com/category/world-news'

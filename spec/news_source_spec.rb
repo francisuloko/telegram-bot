@@ -1,6 +1,5 @@
 require_relative '../lib/news_source'
 
-
 RSpec.describe 'Paddy::NewsSource' do
   subject { Paddy::NewsSource.new }
   context '#news_link' do
