@@ -9,20 +9,44 @@ module Paddy
     end
 
     def news_links
-      @articles = scrape
-      @articles.each do |article|
-        @news_links << article.css('a')[0].attributes['href']
-      end
-      @news_links
+      @news_links << channelstv + bbc
+      @news_links = @news_links.flatten
     end
 
     private
+<<<<<<< HEAD
+=======
 
-    def scrape
-      @url = 'https://www.channelstv.com/category/world-news'
-      @html = HTTParty.get(@url)
-      @obj = Nokogiri::HTML(@html)
-      @articles = @obj.css('div.cat_page')
+    def scrapper(url, elem)
+      html = HTTParty.get(url)
+      obj = Nokogiri::HTML(html)
+      articles = obj.css(elem)
+    end
+>>>>>>> test
+
+    def bbc
+      news_array = []
+      url = 'https://www.bbc.com'
+      elem = 'div.media__content'
+      articles = scrapper(url, elem)
+      i = 0
+      articles.each do |article|
+        break if i == 11
+        news_array << url + article.css('a')[0].attributes['href'].value
+        i += 1
+      end
+      news_array
+    end
+    
+    def channelstv
+      news_array = []
+      url = 'https://www.channelstv.com/category/world-news'
+      elem = 'div.cat_page'
+      articles = scrapper(url, elem)
+      articles.each do |article|
+        news_array << article.css('a')[0].attributes['href']
+      end
+      news_array
     end
   end
 end
