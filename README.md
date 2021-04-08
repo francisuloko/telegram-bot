@@ -46,11 +46,15 @@ To create your own telegram bot based on the same logic
 6. Run the following commands
  - $ `git clone https://github.com/francisuloko/telegram-bot.git`
  - $ `cd telegram-bot/`
-7. Open `./lib/bot.rb` and insert token (KEEP IT SECRET)
+7. Open `./lib/bot.rb` and create a `TOKEN` variable (KEEP IT SECRET)
 8. Run the following command to start your bot
  - $ `ruby ./bin/main.rb`
 9. Lauch Telegram and search for @your_bot
 10. Jump to `How to use Paddy` section is this README.
+
+## Testing with Rspec
+
+Run `rspec`
 
 ## Authors
 
