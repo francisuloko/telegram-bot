@@ -29,12 +29,13 @@ module Paddy
       i = 0
       articles.each do |article|
         break if i == 11
+        
         news_array << url + article.css('a')[0].attributes['href'].value
         i += 1
       end
       news_array
     end
-     
+
     def channelstv
       news_array = []
       url = 'https://www.channelstv.com/category/world-news'
@@ -54,10 +55,11 @@ module Paddy
       i = 0
       articles.each do |article|
         break if i == 9
+
         news_array << url + article.css('a')[0].attributes['href'].value
         i += 1
       end
       news_array
-    end 
+    end
   end
 end

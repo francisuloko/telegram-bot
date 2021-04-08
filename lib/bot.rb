@@ -10,12 +10,13 @@ Telegram::Bot::Client.run(TOKEN) do |bot|
       articles = source.news_links
       bot.api.send_message(chat_id: message.chat.id, text: articles.sample)
       bot.api.send_message(chat_id: message.chat.id, text: '/next')
-      bot.listen do |message|
-        if message.text == '/next'
-          bot.api.send_message(chat_id: message.chat.id, text: articles.sample)
-          bot.api.send_message(chat_id: message.chat.id, text: '/next')
-        elsif message.text == '/stop'
-          bot.api.send_message(chat_id: message.chat.id, text: 'See you again friend')
+      bot.listen do |msg|
+        case msg.text
+        when '/next'
+          bot.api.send_message(chat_id: msg.chat.id, text: articles.sample)
+          bot.api.send_message(chat_id: msg.chat.id, text: '/next')
+        when '/stop'
+          bot.api.send_message(chat_id: msg.chat.id, text: 'See you again friend')
           break
         end
       end
