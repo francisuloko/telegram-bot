@@ -5,8 +5,7 @@
 > Microverse ruby capstone project to build a bot
 
 This is a solo project to build a bot by putting into practice
-the concepts of Object Oriented Programming (OOP) learn in Ruby Module. I have demonstrated the use of
-classes (and Module) in Ruby and how to access their properties and methods. Here is a brief description of my bot.
+the concepts of Object Oriented Programming (OOP) learned in Ruby Module. I have demonstrated the use of classes (and Module) in Ruby and how to access their properties and methods. Here is a brief description of my bot.
 
 Paddy (@PaddyMyBot) is a bot built using telegram bot API. It has the ability to scrape news
 channels and display the latest news headlines in the user's chat. The idea behind this project is to enable fast paced individuals to be on the knnow by looking at news headlines.
