@@ -12,7 +12,7 @@ channels and display the latest news headlines in the user's chat. The idea behi
 
 ## How to use Paddy
 
-1. Lauch your telegram app
+1. Launch telegram app
 2. Search for @PaddyMyBot
 3. Read Description and click `Start`
 4. Enter `/` to select news source
@@ -34,26 +34,27 @@ channels and display the latest news headlines in the user's chat. The idea behi
 
 To create your own telegram bot based on the same logic
 
-1. Lauch Telegram and Talk to the BotFather (@BotFather)
+1. Launch Telegram and Talk to the BotFather (@BotFather)
 
 <img src="./botfather.png" alt="BotFather" widht="400" height="400">
 
 2. Enter /help to see a list of commands
-3. Click /newbot command and choose your bot name and username (It must be unique)
-4. Copy your Token (or use /token or generate)
+3. Click /newbot command and enter bot name and username
+4. Copy your Token (or use `/token` or generate)
 5. Open terminal or command line
 6. Run the following commands
  - $ `git clone https://github.com/francisuloko/telegram-bot.git`
  - $ `cd telegram-bot/`
-7. Open `./lib/bot.rb` and create a `TOKEN` variable (KEEP IT SECRET)
+7. Open `./lib/bot.rb` and create your `TOKEN` variable (KEEP IT SECRET)
+(Or create the variable in config/token.rb)
 8. Run the following command to start your bot
  - $ `ruby ./bin/main.rb`
 9. Lauch Telegram and search for @your_bot
 10. Jump to `How to use Paddy` section is this README.
 
 ## Testing with Rspec
-
-Run `rspec`
+From project directory, run the following command
+`bundle exec rspec` or `rspec`
 
 ## Authors
 
