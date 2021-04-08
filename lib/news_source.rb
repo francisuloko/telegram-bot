@@ -29,7 +29,7 @@ module Paddy
       i = 0
       articles.each do |article|
         break if i == 11
-     
+
         news_array << url + article.css('a')[0].attributes['href'].value
         i += 1
       end
