@@ -9,7 +9,7 @@ module Paddy
     end
 
     def news_links
-      @news_links << channelstv + bbc + cnn
+      @news_links << channelstv + bbc
       @news_links = @news_links.flatten
     end
 
@@ -43,21 +43,6 @@ module Paddy
       articles = scrapper(url, elem)
       articles.each do |article|
         news_array << article.css('a')[0].attributes['href']
-      end
-      news_array
-    end
-
-    def cnn
-      news_array = []
-      url = 'https://edition.cnn.com/world'
-      elem = 'h3.cd__headline'
-      articles = scrapper(url, elem)
-      i = 0
-      articles.each do |article|
-        break if i == 9
-
-        news_array << url + article.css('a')[0].attributes['href'].value
-        i += 1
       end
       news_array
     end
