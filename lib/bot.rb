@@ -6,19 +6,14 @@ Telegram::Bot::Client.run(TOKEN) do |bot|
   bot.listen do |message|
     case message.text
     when '/start'
-      bot.api.send_message(chat_id: message.chat.id, text: "Hi")
-    when '/channels'
-      channels = Paddy::NewsSource.new
-      articles = channels.news_links
-      i = 0
-      bot.api.send_message(chat_id: message.chat.id, text: articles[i])
+      source = Paddy::NewsSource.new
+      articles = source.news_links
+      bot.api.send_message(chat_id: message.chat.id, text: articles.sample)
       bot.api.send_message(chat_id: message.chat.id, text: '/next')
       bot.listen do |message|
-        if message.text == '/next' && i < articles.length
-          i += 1
-          bot.api.send_message(chat_id: message.chat.id, text: articles[i])
+        if message.text == '/next'
+          bot.api.send_message(chat_id: message.chat.id, text: articles.sample)
           bot.api.send_message(chat_id: message.chat.id, text: '/next')
-          break if i == articles.length
         elsif message.text == '/stop'
           bot.api.send_message(chat_id: message.chat.id, text: 'See you again friend')
           break
