@@ -4,7 +4,6 @@ require 'byebug'
 
 module Paddy
   class NewsSource
-
     def initialize
       @news_links = []
     end
