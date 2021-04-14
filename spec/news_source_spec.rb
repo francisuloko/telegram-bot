@@ -2,18 +2,18 @@ require_relative '../lib/news_source'
 
 RSpec.describe 'Paddy::NewsSource' do
   subject { Paddy::NewsSource.new }
-  let (:url) { 'https://www.channelstv.com/category/world-news' }
-  let (:elem) { 'div.cat_page' }
-  let (:scrappr) { subject.send(:scrapper, url, elem) }
-  let (:bbc) { subject.send(:bbc) }
-  let (:channelstv) { subject.send(:channelstv) }
+  let(:url) { 'https://www.channelstv.com/category/world-news' }
+  let(:elem) { 'div.cat_page' }
+  let(:scrappr) { subject.send(:scrapper, url, elem) }
+  let(:bbc) { subject.send(:bbc) }
+  let(:channelstv) { subject.send(:channelstv) }
 
   describe '#news_link' do
     it 'returns arrays' do
       expect(subject.news_links.is_a?(Array)).to eq(true)
     end
 
-    it 'return a flat array' do
+    it 'return a flattened array' do
       expect(subject.news_links.length).not_to eq(1)
     end
 
