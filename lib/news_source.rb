@@ -40,8 +40,7 @@ module Paddy
       news_array = []
       url = 'https://www.channelstv.com/category/world-news'
       elem = 'div.cat_page'
-      articles = scrapper(url, elem)
-    
+      articles = scrapper(url, elem)  
       articles.each do |article|
         news_array << article.css('a')[0].attributes['href']
       end
